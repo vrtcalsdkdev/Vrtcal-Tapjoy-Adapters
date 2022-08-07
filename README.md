@@ -1,1 +1,0 @@
-# Vrtcal-Tapjoy-Adapters
