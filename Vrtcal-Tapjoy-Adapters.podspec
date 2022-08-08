@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "Vrtcal-Tapjoy-Adapters"
-    s.version      = "1.0.0"
+    s.version      = "1.0.1"
     s.summary      = "Allows mediation with Vrtcal as either the primary or secondary SDK"
     s.homepage     = "http://vrtcal.com"
     s.license = { :type => 'Copyright', :text => <<-LICENSE
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
     s.platform = :ios
     s.ios.deployment_target  = '10.0'
 
-    s.dependency 'smaato-ios-sdk'
+    s.dependency 'TapjoySDK'
     s.dependency 'VrtcalSDK'
     s.pod_target_xcconfig = {
         "VALID_ARCHS[sdk=iphoneos*]" => "arm64 armv7",
