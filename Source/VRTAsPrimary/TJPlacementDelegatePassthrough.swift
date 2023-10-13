@@ -16,26 +16,32 @@ class TJPlacementDelegatePassthrough: NSObject, TJPlacementDelegate {
     weak var viewControllerDelegate: ViewControllerDelegate?
     
     func requestDidSucceed(_ placement: TJPlacement) {
+        VRTLogInfo()
         //No VRT Analog
     }
     
     func requestDidFail(_ placement: TJPlacement, error: Error?) {
+        VRTLogInfo()
         customEventLoadDelegate?.customEventFailedToLoad(vrtError: .init(customEventError: error))
     }
     
     func contentIsReady(_ placement: TJPlacement) {
+        VRTLogInfo()
         customEventLoadDelegate?.customEventLoaded()
     }
     
     func contentDidAppear(_ placement: TJPlacement) {
+        VRTLogInfo()
         customEventShowDelegate?.customEventDidPresentModal(.interstitial)
     }
     
     func contentDidDisappear(_ placement: TJPlacement) {
+        VRTLogInfo()
         customEventShowDelegate?.customEventDidDismissModal(.interstitial)
     }
     
     func didClick(_ placement: TJPlacement) {
+        VRTLogInfo()
         customEventShowDelegate?.customEventClicked()
     }
     
@@ -44,6 +50,7 @@ class TJPlacementDelegatePassthrough: NSObject, TJPlacementDelegate {
         didRequestPurchase request: TJActionRequest?,
         productId: String?
     ) {
+        VRTLogInfo()
         // No VRT Analog
     }
     
@@ -53,6 +60,7 @@ class TJPlacementDelegatePassthrough: NSObject, TJPlacementDelegate {
         itemId: String?,
         quantity: Int
     ) {
+        VRTLogInfo()
         // No VRT Analog
     }
 }

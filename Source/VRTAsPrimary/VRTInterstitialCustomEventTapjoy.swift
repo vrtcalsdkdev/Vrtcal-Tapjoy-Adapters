@@ -11,14 +11,13 @@ class VRTInterstitialCustomEventTapjoy: VRTAbstractInterstitialCustomEvent {
     
     override func loadInterstitialAd() {
         
-        guard let placementName = customEventConfig.thirdPartyAppId(
+        guard let placementName = customEventConfig.thirdPartyAdUnitId(
             customEventLoadDelegate: customEventLoadDelegate
         ) else {
             return
         }
         
         tjPlacementVideoDelegatePassthrough.customEventLoadDelegate = customEventLoadDelegate
-        tjPlacementVideoDelegatePassthrough.customEventShowDelegate = customEventShowDelegate
         
         tjPlacementDelegatePassthrough.customEventShowDelegate = customEventShowDelegate
         tjPlacementDelegatePassthrough.customEventLoadDelegate = customEventLoadDelegate
@@ -32,6 +31,7 @@ class VRTInterstitialCustomEventTapjoy: VRTAbstractInterstitialCustomEvent {
     }
     
     override func showInterstitialAd() {
+        tjPlacementVideoDelegatePassthrough.customEventShowDelegate = customEventShowDelegate
         let vc = viewControllerDelegate?.vrtViewControllerForModalPresentation()
         tjPlacement?.showContent(with: vc)
     }
