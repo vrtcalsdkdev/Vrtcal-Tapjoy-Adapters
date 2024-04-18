@@ -6,11 +6,11 @@ import Tapjoy
 class VRTInterstitialCustomEventTapjoy: VRTAbstractInterstitialCustomEvent {
     private var tjPlacement: TJPlacement?
     
-    var tjPlacementVideoDelegatePassthrough = TJPlacementVideoDelegatePassthrough()
     var tjPlacementDelegatePassthrough = TJPlacementDelegatePassthrough()
+    var tjPlacementVideoDelegatePassthrough = TJPlacementVideoDelegatePassthrough()
     
     override func loadInterstitialAd() {
-        
+        VRTLogInfo()
         guard let placementName = customEventConfig.thirdPartyAdUnitId(
             customEventLoadDelegate: customEventLoadDelegate
         ) else {
@@ -31,6 +31,8 @@ class VRTInterstitialCustomEventTapjoy: VRTAbstractInterstitialCustomEvent {
     }
     
     override func showInterstitialAd() {
+        VRTLogInfo()
+        tjPlacementDelegatePassthrough.customEventShowDelegate = customEventShowDelegate
         tjPlacementVideoDelegatePassthrough.customEventShowDelegate = customEventShowDelegate
         let vc = viewControllerDelegate?.vrtViewControllerForModalPresentation()
         tjPlacement?.showContent(with: vc)

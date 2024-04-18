@@ -32,11 +32,13 @@ class TJPlacementDelegatePassthrough: NSObject, TJPlacementDelegate {
     
     func contentDidAppear(_ placement: TJPlacement) {
         VRTLogInfo()
+        customEventShowDelegate?.customEventWillPresentModal(.interstitial)
         customEventShowDelegate?.customEventDidPresentModal(.interstitial)
     }
     
     func contentDidDisappear(_ placement: TJPlacement) {
         VRTLogInfo()
+        customEventShowDelegate?.customEventWillDismissModal(.interstitial)
         customEventShowDelegate?.customEventDidDismissModal(.interstitial)
     }
     
