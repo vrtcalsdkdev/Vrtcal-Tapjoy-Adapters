@@ -16,6 +16,7 @@ class VRTInterstitialCustomEventTapjoy: VRTAbstractInterstitialCustomEvent {
         ) else {
             return
         }
+        VRTLogInfo("placementName: \(placementName)")
         
         tjPlacementVideoDelegatePassthrough.customEventLoadDelegate = customEventLoadDelegate
         
