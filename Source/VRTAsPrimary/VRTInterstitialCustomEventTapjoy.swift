@@ -34,7 +34,6 @@ class VRTInterstitialCustomEventTapjoy: VRTAbstractInterstitialCustomEvent {
         
         VRTLogInfo("placementName: \(placementName)")
         
-        tjPlacementDelegatePassthrough.customEventShowDelegate = customEventShowDelegate
         tjPlacementDelegatePassthrough.customEventLoadDelegate = customEventLoadDelegate
         tjPlacementDelegatePassthrough.viewControllerDelegate = viewControllerDelegate
         
